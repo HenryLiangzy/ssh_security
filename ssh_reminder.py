@@ -80,7 +80,6 @@ def main():
 
     # get login IP address detail and output to terminal
     message = loginMessage(username, clientIp, hostname)
-    print(message)
 
     # check if telegram bot configure file exist then execute
     if os.path.isfile('tgbot.json'):
