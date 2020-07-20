@@ -4,6 +4,7 @@ import os
 import sys
 import json
 import time
+import socket
 import requests
 
 header = {
@@ -68,13 +69,17 @@ def send_email(message: loginMessage):
 
 
 def main():
-    # load login data from sshrc
-    username = sys.argv[1]
-    ip = sys.argv[2]
-    hostname = sys.argv[3]
+    # load login data from system
+    try:
+        clientIp, clientPort, serverIp, serverPort = os.getenv("SSH_CONNECTION").split()
+    except AttributeError as e:
+        raise e
+
+    hostname = socket.gethostname()
+    username = os.getenv("USER")
 
     # get login IP address detail and output to terminal
-    message = loginMessage(username, ip, hostname)
+    message = loginMessage(username, clientIp, hostname)
     print(message)
 
     # check if telegram bot configure file exist then execute
