@@ -129,3 +129,6 @@ email.json
 
 # Pyre type checker
 .pyre/
+
+# for editor
+.idea
