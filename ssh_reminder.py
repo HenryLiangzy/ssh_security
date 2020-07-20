@@ -18,6 +18,7 @@ header = {
 
 
 class loginMessage(object):
+
     def __init__(self, username, ip, hostname):
         self.username = username
         self.ip = str(ip)
@@ -60,6 +61,10 @@ def send_tg_message(message: loginMessage, token, chat_id):
         "longitude": str(message.detail['lon'])
     }
     r = requests.post(url+'/sendLocation', json=payload)
+
+
+def send_email(message: loginMessage):
+    pass
 
 
 def main():
