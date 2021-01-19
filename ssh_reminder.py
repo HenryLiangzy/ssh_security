@@ -46,7 +46,7 @@ class loginMessage(object):
 
 def send_tg_message(message: loginMessage, token, chat_id):
     url = f'https://api.telegram.org/bot{token}'
-    hint_message = 'Hi Master, I found new SSH login on server, detail as follow:\n'
+    hint_message = 'New SSH login detected, detail as follow:\n'
 
     # send the text message to user
     payload = {
